@@ -6,11 +6,19 @@ import {NgOptimizedImage} from "@angular/common";
   selector: 'app-user',
   standalone: true,
   imports: [
-    NgOptimizedImage
+
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
 export class UserComponent {
   selectedUser = DUMMY_USERS[Math.floor(Math.random() * DUMMY_USERS.length)];
+
+  get imagePath() {
+    return 'assets/users/' + this.selectedUser.avatar;
+  }
+
+  onSelectUser(){
+    console.log('Clicked!');
+  }
 }
